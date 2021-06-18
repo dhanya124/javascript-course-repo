@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w1-t3</title>
+</head>
+<body>
+    <script text="text/javascript">
+    function readForm(){
+        var radioButtons=document.getElementsByName("timezone");
+        var output;
+        for(var i=0;i<radioButtons.length();i++){
+            if(radioButtons[i].checked==true){
+                output=radioButtons[i].value;
+            }
+        }
+        document.getElementById("result").innerHTML=output;
+    }
+    </script>
+    <h2>Select Timezone:</h2>
+    <form>
+        <input id="t1" type="radio" name="timezone" value="est">Eastern Standard Time <br>
+        <input id="t2" type="radio" name="timezone" value="cst">Central Standard Time <br>
+        <input id="t3" type="radio" name="timezone" value="mst">Mountain Standard Time <br>
+        <input id="t4" type="radio" name="timezone" value="pst">Pacific Standard Time <br>
+        <input id="t5" type="radio" name="timezone" value="ast">Alaskan Standard Time <br>
+        <input id="t6" type="radio" name="timezone" value="hast">Hawaii-Aleutian Standard Time <br>
+    
+        <br>
+        <button type="button" value="Submit" onclick="readForm()">Submit</button>
+    </form>
+    <br>
+    <div id="result"></div>
+</body>
+</html>
