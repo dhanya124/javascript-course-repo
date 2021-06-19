@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>w1-t4</title>
+</head>
+
+<body>
+    
+    <h2 >Select Timezone:</h2>
+    <form>
+        <input id="t1" type="radio" name="timezone" value="est">Eastern Standard Time <br>
+        <input id="t2" type="radio" name="timezone" value="cst">Central Standard Time <br>
+        <input id="t3" type="radio" name="timezone" value="mst">Mountain Standard Time <br>
+        <input id="t4" type="radio" name="timezone" value="pst">Pacific Standard Time <br>
+        <input id="t5" type="radio" name="timezone" value="ast">Alaskan Standard Time <br>
+        <input id="t6" type="radio" name="timezone" value="hast">Hawaii-Aleutian Standard Time <br>
+
+        <br>
+        <button type="button" value="Submit" onclick="readForm();">Submit</button>
+    </form>
+    <br>
+    <div id="result"></div>
+    <div id="time"></div>
+
+    <script text="text/javascript">
+        function readForm() {
+            var radioButtons = document.getElementsByName("timezone");
+            var output;
+            for (var i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    output = radioButtons[i].value;
+                    break;
+                }
+            }
+            document.getElementById("result").innerHTML = output;
+        }
+
+        function getTime() {
+            var time = new Date();
+            console.log(time);
+            var hour = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+            var period="AM";
+            if(hour==0) hour=12;
+            if(hour>=12){ hour=hour-12;  if (hour == 12) hour=12;period="PM"} 
+           
+            var timeinFormat = hour + ":" + minutes + ":" + seconds+" "+period;
+            document.getElementById("time").innerHTML = timeinFormat;
+        }
+        getTime();
+        setInterval(getTime,1000);
+    </script>
+</body>
+
+</html>
